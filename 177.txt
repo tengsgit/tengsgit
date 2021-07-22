@@ -1,0 +1,33 @@
+Dem_GetEventUdsStatus = DataDict.Client;
+Dem_GetEventUdsStatus.CallLocation = {'GeelyDiagcMgrPer2'};
+Dem_GetEventUdsStatus.Description = 'Get DTC status';
+Dem_GetEventUdsStatus.Return = DataDict.CSReturn;
+Dem_GetEventUdsStatus.Return.Type = 'Standard';
+Dem_GetEventUdsStatus.Return.Min = 0;
+Dem_GetEventUdsStatus.Return.Max = 1;
+Dem_GetEventUdsStatus.Return.TestTolerance = 0;
+Dem_GetEventUdsStatus.Return.Description = [...
+  ' E_OK: set of event status was successful, E_NOT_OK: set of event stat' ...
+  'us failed or could not be accepted (e.g.: the operation cycle configur' ...
+  'ed for this event has not been started, an according enable condition ' ...
+  'has been disabled) '];
+Dem_GetEventUdsStatus.Arguments(1) = DataDict.CSArguments;
+Dem_GetEventUdsStatus.Arguments(1).Name = 'EveId';
+Dem_GetEventUdsStatus.Arguments(1).EngDT = dt.u16;
+Dem_GetEventUdsStatus.Arguments(1).EngMin = 1;
+Dem_GetEventUdsStatus.Arguments(1).EngMax = 65535;
+Dem_GetEventUdsStatus.Arguments(1).Units = 'Cnt';
+Dem_GetEventUdsStatus.Arguments(1).Direction = 'In';
+Dem_GetEventUdsStatus.Arguments(1).InitRowCol = [1  1];
+Dem_GetEventUdsStatus.Arguments(1).Description = [...
+  'Identification of an event by assigned EventId.'];
+Dem_GetEventUdsStatus.Arguments(2) = DataDict.CSArguments;
+Dem_GetEventUdsStatus.Arguments(2).Name = 'EveSts';
+Dem_GetEventUdsStatus.Arguments(2).EngDT = dt.u08;
+Dem_GetEventUdsStatus.Arguments(2).EngMin = 0;
+Dem_GetEventUdsStatus.Arguments(2).EngMax = 255;
+Dem_GetEventUdsStatus.Arguments(2).TestTolerance = 0;
+Dem_GetEventUdsStatus.Arguments(2).Units = 'Cnt';
+Dem_GetEventUdsStatus.Arguments(2).Direction = 'Out';
+Dem_GetEventUdsStatus.Arguments(2).InitRowCol = [1  1];
+Dem_GetEventUdsStatus.Arguments(2).Description = 'Monitor test result';
